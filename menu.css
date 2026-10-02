@@ -1,0 +1,104 @@
+/* Scene-led title screen. Gameplay retains its dedicated, bounded arena. */
+.menu-logo,.menu-slipper{display:none}
+footer a{color:inherit;text-decoration:none}footer a:hover{text-decoration:underline}
+#back-menu{display:block;margin:14px auto 0}
+body[data-state=ready]{background:#efd8b4;overflow:hidden}
+body[data-state=ready] .shell{position:relative;isolation:isolate;width:100%;max-width:none;height:100svh;height:100dvh;min-height:360px;padding:0;overflow:hidden;background:url('assets/menu-wide-v1.png') center/cover no-repeat}
+body[data-state=ready][data-preview-scene=noodle] .shell{background-image:url('assets/noodle-shop-v1.png')}
+body[data-state=ready][data-preview-scene=convenience] .shell{background-image:url('assets/convenience-store-v1.png')}
+body[data-state=ready][data-preview-scene=bathroom] .shell{background-image:url('assets/bathroom-v1.png')}
+body[data-state=ready] .intro,body[data-state=ready] .hud,body[data-state=ready] .toolbar,body[data-state=ready] .room-tag,body[data-state=ready] .floor-note{display:none}
+body[data-state=ready] .game-wrap{display:contents;border:0;box-shadow:none}
+body[data-state=ready] .arena{position:absolute;inset:0;width:100%;height:100%;background:none!important;overflow:visible;isolation:auto;touch-action:manipulation!important}
+body[data-state=ready] header{position:absolute;z-index:12;top:max(18px,env(safe-area-inset-top));right:max(26px,env(safe-area-inset-right));display:flex}
+body[data-state=ready] header .brand{display:none}
+body[data-state=ready] .controls{gap:8px}
+body[data-state=ready] .icon,body[data-state=ready] .language{background:#fff3dcd9;border:0;box-shadow:none;height:44px;min-width:44px;font-weight:800}
+body[data-state=ready] .session-strip{position:absolute;z-index:12;top:20px;right:190px;padding:8px 13px;border:1px solid #b9926c;background:#fff4dcdf;border-radius:30px;color:#553625;font-size:15px}
+body[data-state=ready] .session-strip>span:first-child,body[data-state=ready] .session-strip>span:last-child>span{display:none}
+body[data-state=ready] .session-strip>span:last-child:before{content:'●';color:#d49727;text-shadow:0 1px #795122;margin-right:9px}
+body[data-state=ready] .menu-logo{display:block;position:absolute;z-index:10;top:5%;left:7%;transform:rotate(-7deg);font-weight:900;line-height:1.02;pointer-events:none;filter:drop-shadow(0 3px #fff0cd)}
+.menu-logo span{display:block;font-size:58px;color:#482416;letter-spacing:-4px}.menu-logo strong{display:block;font-size:66px;color:#ffc965;-webkit-text-stroke:2px #633822;paint-order:stroke fill;text-shadow:2px 3px #633822;margin-left:42px;letter-spacing:-3px}
+html[lang=en] .menu-logo span{font-size:44px;letter-spacing:-2px}html[lang=en] .menu-logo strong{font-size:43px;letter-spacing:-2px;margin-left:10px}
+body[data-state=ready] .welcome,body[data-state=ready] .welcome:has(.scene-picker:not([hidden])){position:absolute;top:auto;bottom:5%;left:50%;transform:translateX(-50%);width:390px;max-width:88%;max-height:none;padding:0;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;text-align:center}
+body[data-state=ready] .welcome>h2,body[data-state=ready] .welcome>p,body[data-state=ready] .welcome>.mini-label,body[data-state=ready] .welcome>small{display:none}
+body[data-state=ready] .welcome:after{content:'90 秒・看到就啪';display:block;margin-top:12px;font-size:14px;font-weight:800;color:#543520;text-shadow:0 1px 5px #fff9e5}
+html[lang=en] body[data-state=ready] .welcome:after{content:'90 seconds · See it? Slap it.'}
+body[data-state=ready] .scene-picker{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:0;margin:0 0 10px;align-items:start}
+body[data-state=ready] .scene-arrow{background:#fff3d8bd;border:0;border-radius:50%;width:44px;height:44px;font-size:32px;color:#653e25;box-shadow:none}
+body[data-state=ready] .scene-choice{display:block;background:none;border:0;border-radius:0;padding:0 4px;min-height:0;text-align:center}
+body[data-state=ready] .scene-choice-image,body[data-state=ready] .scene-choice-copy>small,body[data-state=ready] .scene-choice-copy>span,body[data-state=ready] .scene-choice-copy>b{display:none}
+body[data-state=ready] .scene-choice-copy{align-items:center;gap:4px;background:#fff1d6c9;border-radius:8px;padding:4px}
+body[data-state=ready] .scene-choice-copy>strong{font-size:23px;line-height:1.3;letter-spacing:1px}
+body[data-state=ready] .picker-species{justify-content:center;gap:4px}
+body[data-state=ready] .picker-species em{font-size:11px;color:#765032}
+body[data-state=ready] .scene-choice-copy button{min-height:44px;font-size:13px;padding:7px 12px}
+body[data-state=ready] .primary{width:100%;min-height:62px;border:2px solid #733e26;background:#f48b5c;box-shadow:0 4px #a75636,inset 0 2px #ffd6aa;border-radius:32px;color:#fff9e9;font-size:25px;padding:10px 24px;text-shadow:0 2px #b45d3c}
+body[data-state=ready] .primary:disabled{background:#c8aa87;color:#fff5df;text-shadow:none;box-shadow:0 3px #96704e}
+body[data-state=ready] .lobby-roach{left:calc(50% - 140px)!important;bottom:29%;width:200px;height:200px;z-index:5;filter:drop-shadow(0 9px 3px #68351e26)}
+body[data-state=ready] .menu-slipper{display:block;position:absolute;z-index:4;left:calc(50% + 40px);bottom:29%;width:140px;height:140px;transform:rotate(12deg);pointer-events:none}
+body[data-state=ready] .meta-nav{display:contents}
+body[data-state=ready] .meta-nav button{position:absolute;z-index:11;border:0;background:none;box-shadow:none;padding:8px;min-width:76px;min-height:52px;font-size:17px;font-weight:900;color:#603d28;text-shadow:0 1px #fff0d7}
+body[data-state=ready] .meta-nav button:before{display:block;font-size:34px;margin-bottom:4px;line-height:1.2;font-weight:400}
+body[data-state=ready] .meta-nav [data-meta=collection]{left:9%;top:30%;background:#fff0d3;border:2px solid #986d4c;border-left:6px dotted #9c7855;border-radius:2px 7px 7px 2px;transform:rotate(-4deg);width:98px;height:116px;box-shadow:3px 4px #78533233}
+body[data-state=ready] .meta-nav [data-meta=collection]:before{content:'';width:56px;height:56px;margin:0 auto;background:url('assets/characters-v2.png') 0 0/200% 200%}
+body[data-state=ready] .meta-nav [data-meta=shop]{left:23%;top:35%;background:#f1ddb6;border:2px solid #906445;border-radius:5px 5px 28px 22px;transform:rotate(3deg);width:96px;height:112px;box-shadow:3px 4px #78533233}
+body[data-state=ready] .meta-nav [data-meta=shop]:before{content:'⌒';position:absolute;top:-36px;left:20px;right:20px;height:40px;font-size:54px;color:#794c32}
+body[data-state=ready] .meta-nav [data-meta=shop]:after{content:'';display:block;width:52px;height:45px;margin:0 auto;background:url('assets/tools-v1.png') 100% 0/200% 200%}
+body[data-state=ready] .meta-nav [data-meta=achievements]{right:15%;top:27%}
+body[data-state=ready] .meta-nav [data-meta=achievements]:before{content:'♛';color:#97601e}
+body[data-state=ready] .meta-nav [data-meta=career]{right:5%;top:27%}
+body[data-state=ready] .meta-nav [data-meta=career]:before{content:'▤'}
+body[data-state=ready] .meta-nav [data-meta=scenes]{right:4%;bottom:12%;font-size:13px;background:#fff2d9c4;border-radius:6px}
+body[data-state=ready] footer{display:block;position:absolute;z-index:12;bottom:12px;right:22px;padding:0;font-size:12px;color:#533b29;text-shadow:0 1px #fff7df}
+body[data-state=ready] footer>span{display:none}
+@media(max-width:700px) and (orientation:portrait){
+ body[data-state=ready] .shell{background-image:url('assets/menu-tall-v1.png');background-position:center;background-size:cover;min-height:0}
+ body[data-state=ready] header{top:max(10px,env(safe-area-inset-top));right:10px}
+ body[data-state=ready] .session-strip{top:64px;right:12px;font-size:12px;padding:5px 10px}
+ body[data-state=ready] .menu-logo{top:5%;left:6%}.menu-logo span{font-size:42px}.menu-logo strong{font-size:48px;margin-left:24px}
+ html[lang=en] .menu-logo span{font-size:33px}html[lang=en] .menu-logo strong{font-size:31px;margin-left:0}
+ body[data-state=ready] .welcome,body[data-state=ready] .welcome:has(.scene-picker:not([hidden])){bottom:15%;width:300px;max-width:90%;padding:0}
+ body[data-state=ready] .scene-choice-copy>strong{font-size:19px}.scene-choice-copy{min-width:0}
+ body[data-state=ready] .primary{min-height:54px;font-size:22px}
+ body[data-state=ready] .welcome:after{margin-top:8px;font-size:12px}
+ body[data-state=ready] .lobby-roach{width:150px;height:150px;left:calc(50% - 105px)!important;bottom:40%}
+ body[data-state=ready] .menu-slipper{width:100px;height:100px;left:calc(50% + 30px);bottom:40%}
+ body[data-state=ready] .meta-nav [data-meta=collection]{left:6%;top:25%;width:77px;height:96px;font-size:14px}
+ body[data-state=ready] .meta-nav [data-meta=collection]:before{height:44px;width:44px}
+ body[data-state=ready] .meta-nav [data-meta=shop]{left:32%;top:29%;width:72px;height:88px;font-size:14px}
+ body[data-state=ready] .meta-nav [data-meta=shop]:before{font-size:42px;top:-29px;left:14px;right:14px}
+ body[data-state=ready] .meta-nav [data-meta=shop]:after{width:42px;height:37px}
+ body[data-state=ready] .meta-nav [data-meta=achievements],body[data-state=ready] .meta-nav [data-meta=career]{top:auto;bottom:4.5%;font-size:13px;min-height:48px;padding:3px;background:#ffefd7b8;border-radius:8px}
+ body[data-state=ready] .meta-nav [data-meta=achievements]{left:22%;right:auto}
+ body[data-state=ready] .meta-nav [data-meta=career]{right:22%}
+ body[data-state=ready] .meta-nav button:before{font-size:24px;margin-bottom:0}
+ body[data-state=ready] .meta-nav [data-meta=scenes]{right:10px;top:42%;bottom:auto;min-width:52px;min-height:44px;font-size:12px}
+ body[data-state=ready] footer{bottom:max(6px,env(safe-area-inset-bottom));right:0;left:0;text-align:center;font-size:10px}
+}
+@media(max-height:650px) and (orientation:portrait){
+ body[data-state=ready] .lobby-roach{width:108px;height:108px;bottom:43%;left:calc(50% - 70px)!important}
+ body[data-state=ready] .menu-slipper{width:76px;height:76px;bottom:43%}
+ body[data-state=ready] .welcome,body[data-state=ready] .welcome:has(.scene-picker:not([hidden])){bottom:16%}
+ body[data-state=ready] .picker-species{display:none}
+ body[data-state=ready] .scene-choice-copy>strong{font-size:17px}
+ body[data-state=ready] .primary{min-height:48px;font-size:18px}
+ body[data-state=ready] .menu-logo{top:4%}.menu-logo span{font-size:35px}.menu-logo strong{font-size:40px}
+}
+@media(max-height:500px) and (orientation:landscape){
+ body[data-state=ready] .menu-logo{top:6%;left:5%}.menu-logo span{font-size:32px}.menu-logo strong{font-size:37px}
+ body[data-state=ready] .welcome,body[data-state=ready] .welcome:has(.scene-picker:not([hidden])){bottom:4%;width:290px}
+ body[data-state=ready] .picker-species{display:none}
+ body[data-state=ready] .scene-choice-copy>strong{font-size:18px}
+ body[data-state=ready] .primary{min-height:46px;font-size:20px}
+ body[data-state=ready] .lobby-roach{width:120px;height:120px;bottom:36%;left:calc(50% - 80px)!important}
+ body[data-state=ready] .menu-slipper{width:80px;height:80px;bottom:35%}
+ body[data-state=ready] .meta-nav [data-meta=collection]{left:7%;width:76px;height:95px;top:40%}
+ body[data-state=ready] .meta-nav [data-meta=shop]{left:21%;width:72px;height:90px;top:43%}
+ body[data-state=ready] .meta-nav [data-meta=achievements]{right:13%;top:34%}
+ body[data-state=ready] .meta-nav [data-meta=career]{right:2%;top:34%}
+ body[data-state=ready] .meta-nav button{font-size:12px}
+}
+
+/* No visible focus indicator on the dialog itself. */
+#meta-dialog:focus{outline:none}
